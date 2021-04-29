@@ -4,43 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
     tools:context=".Home">
 
-    <EditText
-        android:id="@+id/homePassword"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="156dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/submitPassword"
+        android:layout_marginBottom="40dp"
+        android:text="Log In"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/signupButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="loginWindow"/>
 
     <Button
-        android:id="@+id/submitPassword"
-        android:layout_width="wrap_content"
+        android:id="@+id/signupButton"
+        android:layout_width="100sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
-        android:onClick="passCheck"
-        android:text="Log In"
+        android:layout_marginBottom="52dp"
+        android:text="Sign up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_goneMarginBottom="60sp"
+        android:onClick="loginWindow"/>
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="57dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="132sp"
+        app:layout_constraintEnd_toStartOf="@+id/appName"
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:srcCompat="@drawable/ic_baseline_vpn_key_24" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="199dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="116dp"
-        android:text="Enter Your Password!"
-        android:gravity = "center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/homePassword"
+        android:id="@+id/appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="135sp"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="cursive"
+        android:text="Arclight."
+        android:textColor="@color/white"
+        android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:text="Your Personal Password Manager"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
