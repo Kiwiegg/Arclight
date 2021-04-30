@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-46dp" />
+        tools:layout_editor_absoluteY="-16dp" />
 
     <EditText
         android:id="@+id/usernameText"
@@ -46,16 +46,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameText" />
 
+    <EditText
+        android:id="@+id/confirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:layout_marginTop="20sp"
+        android:backgroundTint="@color/white"
+        android:hint="Confirm Password"
+        android:textColor="	#A9A9A9"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="40dp"
+        android:text="Sign up"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        android:onClick="submitLogin"/>
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword" />
 
     <ImageView
         android:id="@+id/imageView"

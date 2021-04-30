@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_goneMarginBottom="60sp"
-        android:onClick="loginWindow"/>
+        android:onClick="signupWindow"/>
 
 
     <ImageView
@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:srcCompat="@drawable/ic_baseline_vpn_key_24" />
+        android:src="@drawable/ic_baseline_vpn_key_24" />
 
     <TextView
         android:id="@+id/appName"

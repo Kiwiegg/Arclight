@@ -35,4 +35,9 @@ class Home : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
+
+    fun signupWindow(view: View) {
+        val intent = Intent(this, signupActivity::class.java)
+        startActivity(intent)
+    }
 }
