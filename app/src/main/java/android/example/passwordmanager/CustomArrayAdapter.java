@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,11 +29,11 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         }
         Information currentItem = getItem(position);
 
-        EditText editText0 = listItemView.findViewById(R.id.purpose);
+        TextView editText0 = listItemView.findViewById(R.id.purpose);
         editText0.setText(currentItem.getPurpose());
-        EditText editText1 = listItemView.findViewById(R.id.username);
+        TextView editText1 = listItemView.findViewById(R.id.username);
         editText1.setText(currentItem.getPassword());
-        EditText editText2 = listItemView.findViewById(R.id.password);
+        TextView editText2 = listItemView.findViewById(R.id.password);
         editText2.setText(currentItem.getUsername());
 
         return listItemView;

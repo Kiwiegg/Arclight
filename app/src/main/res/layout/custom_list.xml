@@ -5,24 +5,30 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:minHeight="100dp">
-    <EditText
+
+    <TextView
         android:layout_width="80dp"
         android:layout_height="100dp"
         android:id="@+id/purpose"
-        android:text="Purpose:"/>
+        android:text="Purpose:"
+        android:textColor="@color/white" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <EditText
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/username"
-            android:text="Username:"/>
-        <EditText
+            android:text="Username:"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/password"
-            android:text="Password:"/>
+            android:text="Password:"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"/>
     </LinearLayout>
 </LinearLayout>
