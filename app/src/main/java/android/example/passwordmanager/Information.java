@@ -1,8 +1,17 @@
 package android.example.passwordmanager;
 
+import androidx.annotation.NonNull;
+
 public class Information {
+
+    @NonNull
     private String purpose, username, password;
 
+    public Information() {
+        this.purpose = "";
+        this.username = "";
+        this.password = "";
+    }
     public Information(String purpose, String username, String password) {
         this.purpose = purpose;
         this.username = username;

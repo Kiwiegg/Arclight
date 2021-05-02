@@ -67,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
         val realPassword = data.child("password").value
         if (password == realPassword) {
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("username", "username")
+            intent.putExtra("username", username)
             startActivity(intent)
         } else {
             Toast.makeText(this, "Incorrect password", Toast.LENGTH_SHORT).show()

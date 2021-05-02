@@ -72,7 +72,7 @@ class signupActivity : AppCompatActivity() {
         newUser.child("username").setValue(username)
         newUser.child("password").setValue(password)
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("username", "username")
+        intent.putExtra("username", username)
         startActivity(intent)
     }
 }
