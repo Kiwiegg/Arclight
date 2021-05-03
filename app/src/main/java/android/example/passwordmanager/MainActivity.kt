@@ -1,6 +1,7 @@
 package android.example.passwordmanager
 
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
@@ -42,11 +43,11 @@ class MainActivity : AppCompatActivity() {
         val main_listview = findViewById<ListView>(R.id.main_listview)
         val itemsList:ArrayList<Information> = ArrayList()
 
-        if (!data.hasChildren()) {
+        /*if (!data.hasChildren()) {
             val noPassword = findViewById<TextView>(R.id.noPasswordView)
             noPassword.visibility = VISIBLE
             return
-        }
+        }*/
 
         for (child in data.children) {
             // val newInfo = child.getValue(Information::class.java)!!
@@ -86,6 +87,8 @@ class MainActivity : AppCompatActivity() {
 
             new_purpose.setHintTextColor(Color.WHITE)
             new_username.setHintTextColor(Color.WHITE)
+            new_purpose.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+            new_username.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
 
             // Save and Cancel Buttons
             val child = LinearLayout(this)
