@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".AddInfoActivity">
 
     <ImageView
         android:id="@+id/imageView6"
@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-16dp" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/purposeText"
@@ -23,7 +23,7 @@
         android:layout_marginRight="50sp"
         android:layout_marginTop="150sp"
         android:backgroundTint="@color/white"
-        android:hint="Username"
+        android:hint="Purpose"
         android:textColor="	#A9A9A9"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_marginTop="20sp"
         android:layout_marginRight="50sp"
         android:backgroundTint="@color/white"
-        android:hint="Password"
+        android:hint="Your username"
         android:inputType="textPassword"
         android:textColor="	#A9A9A9"
         android:textColorHint="@color/white"
@@ -55,7 +55,7 @@
         android:layout_marginTop="20sp"
         android:layout_marginRight="50sp"
         android:backgroundTint="@color/white"
-        android:hint="Confirm Password"
+        android:hint="Your password"
         android:inputType="textPassword"
         android:textColor="	#A9A9A9"
         android:textColorHint="@color/white"
@@ -64,16 +64,16 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameText" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Sign up"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        android:onClick="submitSignup"/>
+        android:onClick="saveButtonOnclick"/>
 
     <ImageView
         android:id="@+id/imageView"
@@ -84,7 +84,6 @@
         android:src="@drawable/ic_baseline_close_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="homeScreen"/>
-
+        android:onClick="cancel"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

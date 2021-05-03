@@ -18,10 +18,11 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".MainActivity"
         android:layout_marginTop="20sp"
-        android:id="@+id/main_listview">
+        android:id="@+id/main_listview"
+        app:layout_constraintTop_toTopOf="parent">
     </ListView>
 
     <TextView
@@ -37,5 +38,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_listview"
+        android:layout_marginTop="30sp"
+        android:text="ADD NEW ENTRY"
+        android:textColor="@color/white"
+        android:onClick="addButtonClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

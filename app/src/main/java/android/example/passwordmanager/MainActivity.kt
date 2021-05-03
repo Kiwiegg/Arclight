@@ -1,10 +1,13 @@
 package android.example.passwordmanager
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.*
 import android.widget.LinearLayout
@@ -60,12 +63,14 @@ class MainActivity : AppCompatActivity() {
         val main_listview = findViewById<ListView>(R.id.main_listview)
         val itemsList:ArrayList<Information> = ArrayList()
 
-        /*if (!data.hasChildren()) {
-            val noPassword = findViewById<TextView>(R.id.noPasswordView)
-            noPassword.visibility = VISIBLE
-            return
-        }*/
+        // val noPassword = findViewById<TextView>(R.id.noPasswordView)
 
+        if (!data.hasChildren()) {
+            // noPassword.visibility = VISIBLE
+            return
+        }
+
+        // noPassword.visibility = INVISIBLE
         for (child in data.children) {
             // val newInfo = child.getValue(Information::class.java)!!
             itemsList.add(
@@ -79,94 +84,13 @@ class MainActivity : AppCompatActivity() {
 
         val arrayAdapter:CustomArrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
+    }
 
-        val footerId = 123
-        val footer = Button(this)
-        val cancel = Button(this)
-        val save = Button(this)
-        val parent = LinearLayout(this)
+    fun addButtonClick (view: View) {
+        val username = intent.getStringExtra("username")
 
-        footer.setText("ADD NEW ENTRY")
-        footer.setId(footerId)
-        main_listview.addFooterView(footer);
-
-        footer.setOnClickListener {
-            // New purpose and username text
-            parent.setOrientation(LinearLayout.VERTICAL)
-
-            val new_purpose = EditText(this)
-            val new_username = EditText(this)
-            new_purpose.hint = "Purpose"
-            new_username.hint = "Username"
-
-            new_purpose.setTextColor(Color.WHITE)
-            new_username.setTextColor(Color.WHITE)
-
-            new_purpose.setHintTextColor(Color.WHITE)
-            new_username.setHintTextColor(Color.WHITE)
-            new_purpose.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
-            new_username.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
-
-            // Save and Cancel Buttons
-            val child = LinearLayout(this)
-            child.setOrientation(LinearLayout.HORIZONTAL)
-            child.setWeightSum(2f);
-
-            val shape1 = GradientDrawable()
-            shape1.setCornerRadius(32f)
-            shape1.setColor(Color.GREEN)
-
-            val shape2 = GradientDrawable()
-            shape2.setCornerRadius(32f)
-            shape2.setColor(Color.RED)
-
-            val param = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                1.0f
-            )
-
-            val cancel_ID = 1234
-            val save_ID = 12345
-            cancel.setText("CANCEL")
-            save.setText("SAVE")
-            cancel.setId(cancel_ID)
-            save.setId(save_ID)
-            cancel.setTextColor(Color.WHITE);
-            save.setTextColor(Color.WHITE);
-
-            cancel.setBackground(shape2)
-            save.setBackground(shape1)
-
-            cancel.setLayoutParams(param);
-            save.setLayoutParams(param);
-
-            child.addView(cancel)
-            child.addView(save)
-            parent.addView(new_purpose)
-            parent.addView(new_username)
-            parent.addView(child)
-
-            main_listview.removeFooterView(footer)
-            main_listview.addFooterView(parent)
-        }
-
-        cancel.setOnClickListener {
-            main_listview.removeFooterView(parent)
-            main_listview.addFooterView(footer)
-            val intent = intent
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-        }
-
-        save.setOnClickListener {
-            main_listview.removeFooterView(parent)
-            main_listview.addFooterView(footer)
-            val intent = intent
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-        }
+        val intent = Intent(this, AddInfoActivity::class.java)
+        intent.putExtra("username", username)
+        startActivity(intent)
     }
 }

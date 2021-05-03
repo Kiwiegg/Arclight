@@ -25,9 +25,9 @@ class signupActivity : AppCompatActivity() {
     }
 
     fun submitSignup (view: View) {
-        val usernameText = findViewById<EditText>(R.id.usernameText)
-        val passwordText = findViewById<EditText>(R.id.passwordText)
-        val confirmPasswordText = findViewById<EditText>(R.id.confirmPassword)
+        val usernameText = findViewById<EditText>(R.id.purposeText)
+        val passwordText = findViewById<EditText>(R.id.usernameText)
+        val confirmPasswordText = findViewById<EditText>(R.id.passwordText)
         val username = usernameText.text.toString()
         val password = passwordText.text.toString()
         val confirmPassword = confirmPasswordText.text.toString()
