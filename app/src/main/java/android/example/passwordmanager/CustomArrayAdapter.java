@@ -27,6 +27,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.custom_list, parent, false);
         }
+
         Information currentItem = getItem(position);
 
         TextView editText0 = listItemView.findViewById(R.id.purpose);

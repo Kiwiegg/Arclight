@@ -8,7 +8,7 @@
 
     <TextView
         android:layout_width="80dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:id="@+id/purpose"
         android:text="Purpose:"
         android:textColor="@color/white" />

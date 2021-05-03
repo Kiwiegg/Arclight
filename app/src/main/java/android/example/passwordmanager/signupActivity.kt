@@ -64,7 +64,7 @@ class signupActivity : AppCompatActivity() {
 
     private fun processData(username: String, password: String, arr: DataSnapshot, users: DatabaseReference) {
         if (arr.hasChildren()) {
-            Toast.makeText(this, "The username is already taken, please enter a new onm", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "The username is already taken, please enter a new one", Toast.LENGTH_SHORT).show()
             return
         }
         // val newUser = User(username, password)
