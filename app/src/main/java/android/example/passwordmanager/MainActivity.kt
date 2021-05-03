@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import org.w3c.dom.Text
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -68,6 +69,7 @@ class MainActivity : AppCompatActivity() {
         val arrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
     }
+
 
     fun addButtonClick (view: View) {
         val username = intent.getStringExtra("username")

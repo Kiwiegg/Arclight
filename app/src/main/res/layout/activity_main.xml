@@ -27,7 +27,8 @@
         android:dividerHeight="15sp"
         android:divider="@color/transparent"
         android:layout_marginLeft="10sp"
-        android:layout_marginRight="10sp">
+        android:layout_marginRight="10sp"
+        >
 
     </ListView>
 
