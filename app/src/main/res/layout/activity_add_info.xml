@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="-56dp" />
 
     <EditText
         android:id="@+id/purposeText"
@@ -40,7 +40,6 @@
         android:layout_marginRight="50sp"
         android:backgroundTint="@color/white"
         android:hint="Your username"
-        android:inputType="textPassword"
         android:textColor="	#A9A9A9"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +55,6 @@
         android:layout_marginRight="50sp"
         android:backgroundTint="@color/white"
         android:hint="Your password"
-        android:inputType="textPassword"
         android:textColor="	#A9A9A9"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,13 +65,15 @@
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
+        android:onClick="saveButtonOnclick"
         android:text="Save"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText"
-        android:onClick="saveButtonOnclick"/>
+        app:layout_constraintTop_toBottomOf="@+id/settingButton"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -85,5 +85,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:onClick="cancel"/>
+
+    <Button
+        android:id="@+id/generateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="generateButtonOnClick"
+        android:text="Generate Password"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/settingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="settingButtonOnclick"
+        android:text="Configure Password Preferences"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generateButton"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
