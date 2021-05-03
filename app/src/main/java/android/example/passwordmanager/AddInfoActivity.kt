@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.ktx.database
@@ -15,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 
 class AddInfoActivity : AppCompatActivity() {
     var checkSelected:BooleanArray = BooleanArray(4)
-    val checkListNames = arrayOf("Lowercase?", "Uppercase?", "Numbers?", "Special Chars?")
+    val checkListNames = arrayOf("Include Lowercase?", "Include Uppercase?", "Include Numbers?", "Include Special Chars?")
     var passwordLength = 15
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +42,16 @@ class AddInfoActivity : AppCompatActivity() {
     }
 
     fun generateButtonOnClick(view: View) {
+        if(!checkSelected[0] && !checkSelected[1] && !checkSelected[2] && !checkSelected[3]) {
+            Toast.makeText(this, "Please include at least 1 character option!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if(passwordLength >= 30) {
+            Toast.makeText(this, "Password is too long, please shorten!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val passwordText = findViewById<EditText>(R.id.passwordText)
         passwordText.setText(random_password(passwordLength, checkSelected[0], checkSelected[1], checkSelected[2], checkSelected[3]))
     }
@@ -71,9 +82,12 @@ class AddInfoActivity : AppCompatActivity() {
             checkSelected[which] = isChecked
         })
 
+        checkSelected[0] = true
+
         builder.setPositiveButton("Save") { _, _ ->
             passwordLength = lengthInput.getText().toString().toInt()
         }
+
         builder.show()
     }
 
