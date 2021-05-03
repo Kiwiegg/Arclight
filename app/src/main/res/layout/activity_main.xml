@@ -14,15 +14,21 @@
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="50sp"
         android:id="@+id/main_listview"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:dividerHeight="15sp"
+        android:divider="@color/transparent"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp">
+
     </ListView>
 
     <TextView
@@ -48,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/main_listview"
-        android:layout_marginTop="30sp"
+        android:layout_marginTop="20sp"
         android:text="ADD NEW ENTRY"
         android:textColor="@color/white"
         android:onClick="addButtonClick"/>

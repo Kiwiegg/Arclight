@@ -82,7 +82,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        val arrayAdapter:CustomArrayAdapter = CustomArrayAdapter(this, 0, itemsList)
+        val arrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
     }
 
