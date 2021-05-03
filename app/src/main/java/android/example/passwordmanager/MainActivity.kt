@@ -23,11 +23,12 @@ import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
-    val user = intent.getStringExtra("username")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val user = intent.getStringExtra("username")
         Log.d("username", user!!)
 
         val info = Firebase.database.getReference("savedInfo/$user")
@@ -68,12 +69,11 @@ class MainActivity : AppCompatActivity() {
 
         val arrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
-
-        main_listview.onItemClickListener = 
     }
 
 
     fun addButtonClick (view: View) {
+        val user = intent.getStringExtra("username")
         val intent = Intent(this, AddInfoActivity::class.java)
         intent.putExtra("username", user)
         overridePendingTransition(0, 0)
