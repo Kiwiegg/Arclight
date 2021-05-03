@@ -8,6 +8,11 @@
     <solid
         android:color="@color/orange" />
 
+    <gradient
+        android:startColor="#f12711"
+        android:endColor="#f5af19"
+        android:angle="0"
+        />
     <padding
         android:bottom="5sp"
         android:top="5sp"

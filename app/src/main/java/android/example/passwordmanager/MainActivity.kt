@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, AddInfoActivity::class.java)
         intent.putExtra("username", username)
+        overridePendingTransition(0, 0)
         startActivity(intent)
     }
 }
