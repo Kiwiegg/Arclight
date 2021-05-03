@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
         return password
     }
-
+    //test name change for github
     private fun processData(data: DataSnapshot) {
         val main_listview = findViewById<ListView>(R.id.main_listview)
         val itemsList:ArrayList<Information> = ArrayList()
