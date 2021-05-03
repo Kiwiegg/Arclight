@@ -22,6 +22,7 @@ class AddInfoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_info)
+        checkSelected[0] = true
     }
 
     fun random_password(length: Int, lower: Boolean, upper: Boolean, number: Boolean, special: Boolean): String {
@@ -43,12 +44,12 @@ class AddInfoActivity : AppCompatActivity() {
 
     fun generateButtonOnClick(view: View) {
         if(!checkSelected[0] && !checkSelected[1] && !checkSelected[2] && !checkSelected[3]) {
-            Toast.makeText(this, "Please include at least 1 character option!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Please select at least one character option in password preferences!", Toast.LENGTH_SHORT).show()
             return
         }
 
         if(passwordLength >= 30) {
-            Toast.makeText(this, "Password is too long, please shorten!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Password is too long, please shorten! (Max. 30 Characters)", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -79,10 +80,10 @@ class AddInfoActivity : AppCompatActivity() {
         builder.setTitle("Change Password Preferences")
 
         builder.setMultiChoiceItems(checkListNames, checkSelected, OnMultiChoiceClickListener { dialog, which, isChecked ->
-            checkSelected[which] = isChecked
+            if(!checkSelected[which]) {
+                checkSelected[which] = isChecked
+            }
         })
-
-        checkSelected[0] = true
 
         builder.setPositiveButton("Save") { _, _ ->
             passwordLength = lengthInput.getText().toString().toInt()
@@ -92,9 +93,14 @@ class AddInfoActivity : AppCompatActivity() {
     }
 
     fun saveButtonOnclick(view: View) {
-        val purpose = findViewById<EditText>(R.id.purposeText).text.toString()
-        val username = findViewById<EditText>(R.id.usernameText).text.toString()
-        val password = findViewById<EditText>(R.id.passwordText).text.toString()
+        val purpose = findViewById<EditText>(R.id.purposeText2).text.toString().trim()
+        val username = findViewById<EditText>(R.id.usernameText).text.toString().trim()
+        val password = findViewById<EditText>(R.id.passwordText).text.toString().trim()
+        
+        if(purpose == "" || username == "" || password == "") {
+            Toast.makeText(this, "Information not complete! Fill out all options.", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val user = intent.getStringExtra("username")
         val fb = Firebase.database.getReference("savedInfo/$user")
