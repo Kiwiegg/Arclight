@@ -33,10 +33,11 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         TextView editText0 = listItemView.findViewById(R.id.purpose);
         editText0.setText(currentItem.getPurpose());
         TextView editText1 = listItemView.findViewById(R.id.username);
-        editText1.setText("Username: " + currentItem.getPassword());
+        editText1.setText("Username: " + currentItem.getUsername());
         TextView editText2 = listItemView.findViewById(R.id.password);
-        editText2.setText("Password: " + currentItem.getUsername());
+        editText2.setText("Password: " + currentItem.getPassword());
 
         return listItemView;
     }
+
 }
