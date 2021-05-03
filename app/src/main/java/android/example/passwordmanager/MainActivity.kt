@@ -23,14 +23,14 @@ import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
+    val user = intent.getStringExtra("username")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val username = intent.getStringExtra("username")
-        Log.d("username", username!!)
+        Log.d("username", user!!)
 
-        val info = Firebase.database.getReference("savedInfo/$username")
+        val info = Firebase.database.getReference("savedInfo/$user")
         info.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 // empty
@@ -68,14 +68,14 @@ class MainActivity : AppCompatActivity() {
 
         val arrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
+
+        main_listview.onItemClickListener = 
     }
 
 
     fun addButtonClick (view: View) {
-        val username = intent.getStringExtra("username")
-
         val intent = Intent(this, AddInfoActivity::class.java)
-        intent.putExtra("username", username)
+        intent.putExtra("username", user)
         overridePendingTransition(0, 0)
         startActivity(intent)
     }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:minHeight="100dp"
+    android:minHeight="100sp"
     android:background="@drawable/list_view">
 
     <TextView
@@ -57,7 +57,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="10sp"
-        android:onClick="deleteInfo"/>
+        android:layout_marginRight="10sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
