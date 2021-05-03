@@ -39,6 +39,23 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    fun random_password(length: Int, lower: Boolean, upper: Boolean, number: Boolean, special: Boolean): String {
+        var password: String = ""
+        var arraylist = ArrayList<String>()
+
+        if(lower) arraylist.add("abcdefghijklmnopqrstuvxyz")
+        if(upper) arraylist.add("ABCDEFGHIJKLMNOPQRSTUVXYZ")
+        if(number) arraylist.add("0123456789")
+        if(special) arraylist.add("£$&()*+[]@#^-_!?")
+
+        for(i in 1..length) {
+            val temp1 = (0 until arraylist.size).random()
+            val temp2 = (0 until arraylist[temp1].length).random()
+            password += arraylist[temp1].get(temp2)
+        }
+        return password
+    }
+
     private fun processData(data: DataSnapshot) {
         val main_listview = findViewById<ListView>(R.id.main_listview)
         val itemsList:ArrayList<Information> = ArrayList()
