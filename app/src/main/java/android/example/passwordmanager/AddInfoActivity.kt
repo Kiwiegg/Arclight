@@ -48,8 +48,8 @@ class AddInfoActivity : AppCompatActivity() {
             return
         }
 
-        if(passwordLength >= 30) {
-            Toast.makeText(this, "Password is too long, please shorten! (Max. 30 Characters)", Toast.LENGTH_SHORT).show()
+        if(passwordLength > 30) {
+            Toast.makeText(this, "Cannot generate a password with so many characters, please shorten! (Max. 30 Characters)", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -96,7 +96,12 @@ class AddInfoActivity : AppCompatActivity() {
         val purpose = findViewById<EditText>(R.id.purposeText2).text.toString().trim()
         val username = findViewById<EditText>(R.id.usernameText).text.toString().trim()
         val password = findViewById<EditText>(R.id.passwordText).text.toString().trim()
-        
+
+        if(password.length > 30) {
+            Toast.makeText(this, "Password is too long, please shorten! (Max. 30 Characters)", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         if(purpose == "" || username == "" || password == "") {
             Toast.makeText(this, "Information not complete! Fill out all options.", Toast.LENGTH_SHORT).show()
             return

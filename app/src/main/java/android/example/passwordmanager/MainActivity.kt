@@ -48,14 +48,15 @@ class MainActivity : AppCompatActivity() {
         val main_listview = findViewById<ListView>(R.id.main_listview)
         val itemsList:ArrayList<Information> = ArrayList()
 
-        // val noPassword = findViewById<TextView>(R.id.noPasswordView)
+        val noPassword = findViewById<TextView>(R.id.noPasswordView)
 
         if (!data.hasChildren()) {
-            // noPassword.visibility = VISIBLE
+             noPassword.visibility = VISIBLE
             return
         }
 
-        // noPassword.visibility = INVISIBLE
+         noPassword.visibility = INVISIBLE
+
         for (child in data.children) {
             // val newInfo = child.getValue(Information::class.java)!!
             itemsList.add(
