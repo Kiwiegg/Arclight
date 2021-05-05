@@ -5,17 +5,25 @@ import androidx.annotation.NonNull;
 public class Information {
 
     @NonNull
-    private String purpose, username, password;
+    private String purpose, username, password, user;
 
     public Information() {
         this.purpose = "";
         this.username = "";
         this.password = "";
+        this.user = "";
     }
     public Information(String purpose, String username, String password) {
         this.purpose = purpose;
         this.username = username;
         this.password = password;
+        this.user = "";
+    }
+    public Information(String purpose, String username, String password, String user) {
+        this.purpose = purpose;
+        this.username = username;
+        this.password = password;
+        this.user = user;
     }
 
     public String getPassword() {
@@ -40,5 +48,10 @@ public class Information {
 
     public void setPurpose(String purpose) {
         this.purpose = purpose;
+    }
+
+    @NonNull
+    public String getUser() {
+        return user;
     }
 }

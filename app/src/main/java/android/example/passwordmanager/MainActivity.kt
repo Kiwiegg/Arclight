@@ -51,11 +51,11 @@ class MainActivity : AppCompatActivity() {
         val noPassword = findViewById<TextView>(R.id.noPasswordView)
 
         if (!data.hasChildren()) {
-             noPassword.visibility = VISIBLE
+            noPassword.visibility = VISIBLE
             return
         }
 
-         noPassword.visibility = INVISIBLE
+        noPassword.visibility = INVISIBLE
 
         for (child in data.children) {
             // val newInfo = child.getValue(Information::class.java)!!
@@ -63,13 +63,13 @@ class MainActivity : AppCompatActivity() {
                 Information(
                     child.child("purpose").value.toString(),
                     child.child("username").value.toString(),
-                    child.child("password").value.toString()
-                )
+                    child.child("password").value.toString(), intent.getStringExtra("username"))
             )
         }
 
         val arrayAdapter = CustomArrayAdapter(this, 0, itemsList)
         main_listview.adapter = arrayAdapter
+
     }
 
 

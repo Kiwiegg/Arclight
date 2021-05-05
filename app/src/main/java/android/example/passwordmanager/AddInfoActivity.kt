@@ -109,7 +109,7 @@ class AddInfoActivity : AppCompatActivity() {
 
         val user = intent.getStringExtra("username")
         val fb = Firebase.database.getReference("savedInfo/$user")
-        fb.push().setValue(Information(purpose, username, password))
+        fb.push().setValue(Information(purpose, username, password, user))
 
         finish()
     }
