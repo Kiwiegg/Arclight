@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -60,22 +61,33 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(currentItem);
-                notifyDataSetChanged();
-                String user = currentItem.getUser();
-                DatabaseReference fb = FirebaseDatabase.getInstance().getReference("savedInfo/" + user);
-                fb.orderByChild("username").equalTo(currentItem.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Log.d("tesst", snapshot.toString());
-                        snapshot.getChildren().iterator().next().getRef().removeValue();
-                    }
+                AlertDialog.Builder builder = new AlertDialog.Builder(context2);
+                builder.setTitle("Are you sure you want to Delete?\nThis cannot be undone!");
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // empty
+
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+                        remove(currentItem);
+                        notifyDataSetChanged();
+                        String user = currentItem.getUser();
+                        DatabaseReference fb = FirebaseDatabase.getInstance().getReference("savedInfo/" + user);
+                        fb.orderByChild("username").equalTo(currentItem.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                Log.d("tesst", snapshot.toString());
+                                snapshot.getChildren().iterator().next().getRef().removeValue();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                // empty
+                            }
+                        });
                     }
                 });
+
+                builder.setNegativeButton("Cancel", null);
+                builder.show();
             }
         });
 
