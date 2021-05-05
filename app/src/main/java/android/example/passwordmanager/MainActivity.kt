@@ -73,8 +73,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
     fun addButtonClick (view: View) {
         val user = intent.getStringExtra("username")
         val intent = Intent(this, AddInfoActivity::class.java)

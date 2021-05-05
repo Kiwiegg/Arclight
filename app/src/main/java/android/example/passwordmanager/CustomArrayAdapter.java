@@ -1,6 +1,8 @@
 package android.example.passwordmanager;
 
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.media.Image;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,9 +28,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class CustomArrayAdapter extends ArrayAdapter<Information> {
+    private static Context context2;
 
     public CustomArrayAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Information> informationList) {
         super(context, resource, informationList);
+        context2 = context;
     }
 
     @NonNull
@@ -49,6 +54,8 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         editText2.setText("Password: " + currentItem.getPassword());
 
         ImageView deleteButton = (ImageView) listItemView.findViewById(R.id.imageView);
+        TextView usernameText = (TextView) listItemView.findViewById(R.id.username);
+        TextView passwordText = (TextView) listItemView.findViewById(R.id.password);
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +76,26 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
                         // empty
                     }
                 });
+            }
+        });
+
+        usernameText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) context2.getSystemService(context2.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("EditText", usernameText.getText().toString().substring(10));
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context2, "Username copied", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        passwordText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) context2.getSystemService(context2.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("EditText", passwordText.getText().toString().substring(10));
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context2, "Password copied", Toast.LENGTH_SHORT).show();
             }
         });
 
