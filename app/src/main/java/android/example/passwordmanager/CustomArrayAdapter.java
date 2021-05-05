@@ -1,5 +1,6 @@
 package android.example.passwordmanager;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +40,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
         TextView editText2 = listItemView.findViewById(R.id.password);
         editText2.setText("Password: " + currentItem.getPassword());
 
-        Button deleteButton = (Button) listItemView.findViewById(R.id.imageView);
+        ImageView deleteButton = (ImageView) listItemView.findViewById(R.id.imageView);
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,5 +52,4 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
 
         return listItemView;
     }
-
 }
