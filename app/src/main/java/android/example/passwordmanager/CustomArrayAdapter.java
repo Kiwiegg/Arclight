@@ -1,5 +1,6 @@
 package android.example.passwordmanager;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.media.Image;
 import android.util.Log;
@@ -73,5 +74,4 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
 
         return listItemView;
     }
-
 }
