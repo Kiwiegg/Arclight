@@ -62,7 +62,7 @@ public class CustomArrayAdapter extends ArrayAdapter<Information> {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context2);
-                builder.setTitle("Are you sure you want to Delete?\nThis cannot be undone!");
+                builder.setTitle("Are you sure you want to DELETE?\nThis cannot be undone!");
 
 
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener(){
