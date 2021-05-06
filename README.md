@@ -9,11 +9,11 @@ Arclight is a mobile app that makes all your password mamangement needs easy! Fe
 
 App Login Page
 
-![alt text](https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620324021.png "main page")
+<img src=https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620324021.png width="40%">
 
-Main Page
-![alt text](https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325033.png "main page")
+<img src=https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325033.png width="40%">
 
-![alt text](https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325042.png "main page2")
+<img src=https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325042.png width="40%">
 
-![alt text](https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325046.png "main page3")
+<img src=https://github.com/Kiwiegg/Arclight/blob/main/screenshots/Screenshot_1620325046.png width="40%">
+
